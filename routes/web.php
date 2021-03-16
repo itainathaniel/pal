@@ -31,3 +31,16 @@ Route::get('somedata', function () {
         'message' => 'logout',
     ]);
 });
+
+Route::get('code/{code}', function ($code) {
+    info('code', ['code' => $code, 'request_all' => request()->all()]);
+    return 'the code is ' . $code;
+});
+
+Route::get('jsoncode/{code}', function ($code) {
+    info('jsoncode', ['code' => $code, 'request_all' => request()->all()]);
+    return response()->json([
+        'status' => 'success',
+        'code' => $code,
+    ]);
+});
