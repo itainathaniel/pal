@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::any('/', function () {
     info('/', request()->all());
     dd(request()->all());
     // return view('welcome');
 });
 
-Route::get('returntrue', function () {
+Route::any('returntrue', function () {
     info('returntrue', request()->all());
     return true;
 });
 
-Route::get('somedata', function () {
+Route::any('somedata', function () {
     info('somedata', request()->all());
     return response()->json([
         'status' => 'success',
@@ -32,12 +32,12 @@ Route::get('somedata', function () {
     ]);
 });
 
-Route::get('code/{code}', function ($code) {
+Route::any('code/{code}', function ($code) {
     info('code', ['code' => $code, 'request_all' => request()->all()]);
     return 'the code is ' . $code;
 });
 
-Route::get('jsoncode/{code}', function ($code) {
+Route::any('jsoncode/{code}', function ($code) {
     info('jsoncode', ['code' => $code, 'request_all' => request()->all()]);
     return response()->json([
         'status' => 'success',
