@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-	dd(request()->all());
+    dd(request()->all());
     // return view('welcome');
+});
+
+Route::get('returntrue', function () {
+    return true;
+});
+
+Route::get('somedata', function () {
+    return response()->json([
+        'status' => 'success',
+        'message' => 'logout',
+    ]);
 });
